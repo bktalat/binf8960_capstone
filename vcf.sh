@@ -9,7 +9,7 @@ module load SAMtools/1.18-GCC-12.3.0
 module load BCFtools/1.18-GCC-12.3.0
 
 # Make required folders
-mkdir data/genomes mkdir results/sam results/bam results/vcf results/bcf
+#mkdir data/genomes mkdir results/sam results/bam results/vcf results/bcf
 
 # Download E. coli genome
 wget -O data/genomes/ecoli_rel606.fna.gz  $genome_url
@@ -27,7 +27,7 @@ do
 
    # Run alignment
    echo "Aligning $sample"
-   rev=data/trimmed_fastq_small/${sample}_2.paired.fastq.gz
+   rev=data/trimmed_fastq/${sample}_2.paired.fastq.gz
    bwa mem data/genomes/ecoli_rel606.fna $fwd $rev > results/sam/$sample.sam 
 
    # Convert to BAM and sort 
